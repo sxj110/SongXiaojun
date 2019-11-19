@@ -1,0 +1,60 @@
+实验目的
+掌握字符串String及其方法的使用
+掌握异常处理结构
+业务要求
+内容：利用已学的字符串处理知识编程完成《长恨歌》古诗的整理对齐工作，写出功能函数，并运行。达到如下功能：
+
+每7个汉字加入一个标点符号，奇数时加“，”，偶数时加“。”
+允许提供输入参数，统计古诗中某个字或词出现的次数
+考虑操作中可能出现的异常，在程序中设计异常处理程序
+package song;
+
+import java.util.Scanner;
+
+public class xiaojun {
+      public static void main(String args[]) {
+          try {
+              if (args.length == 0) {
+                  throw new IllegalArgumentException("Please input 长恨歌");
+              }
+          } catch (IllegalArgumentException e) {
+              System.err.println(e.getMessage());
+          }
+          String res = args[0];
+          for(int i = 0; i < res.length(); i++){
+              char c = res.charAt(i);
+              System.out.print(c);
+              if((i + 1) % 14 == 0){
+                  System.out.println("。");
+                  continue;
+              }
+              if((i + 1) % 7 == 0)
+                  System.out.print(",");
+          }
+
+          System.out.println("请输入想要查找的字符串或者字符：");
+          Scanner scanner = new Scanner(System.in);
+          String find = scanner.nextLine();
+          countString(res, find);
+
+      }
+
+      private static void countString(String str,String s) {
+          int count = 0;
+          while(str.indexOf(s) != -1){
+
+              str = str.substring(str.indexOf(s)+1,str.length());
+              count++;
+
+          }
+          System.out.println("出现的次数为"+count+"次");
+      }
+  }
+
+
+  class C{
+      public static void main(String[] args) {
+          String[] s = {"汉皇重色思倾国御宇多年求不得杨家有女初长成养在深闺人未识天生丽质难自弃一朝选在君王侧回眸一笑百媚生六宫粉黛无颜色春寒赐浴华清池温泉水滑洗凝脂侍儿扶起娇无力始是新承恩泽时云鬓花颜金步摇芙蓉帐暖度春宵春宵苦短日高起从此君王不早朝"};
+          xiaojun.main(s);
+      }
+}
