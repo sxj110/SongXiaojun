@@ -8,9 +8,7 @@
 允许提供输入参数，统计古诗中某个字或词出现的次数
 考虑操作中可能出现的异常，在程序中设计异常处理程序
 package song;
-
 import java.util.Scanner;
-
 public class xiaojun {
       public static void main(String args[]) {
           try {
@@ -58,3 +56,4 @@ public class xiaojun {
           xiaojun.main(s);
       }
 }
+![image](https://github.com/sxj110/SongXiaojun/blob/master/%E6%88%AA%E5%9B%BE.PNG)
